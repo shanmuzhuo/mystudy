@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.study.dao.IndexMapper" >
+  <resultMap id="BaseResultMap" type="com.study.model.Index" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="indexName" property="indexname" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="singleLevel" property="singlelevel" jdbcType="DECIMAL" />
+    <result column="generalLevel" property="generallevel" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, indexName, pid, singleLevel, generalLevel
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_t
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+	
+  <select id="selectIndexCount" resultType="String">
+  	select count(*) from index_t;
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from index_t
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.study.model.Index" >
+    insert into index_t (id, indexName, pid, 
+      singleLevel, generalLevel)
+    values (#{id,jdbcType=INTEGER}, #{indexname,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, 
+      #{singlelevel,jdbcType=DECIMAL}, #{generallevel,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.study.model.Index" >
+    insert into index_t
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="indexname != null" >
+        indexName,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="singlelevel != null" >
+        singleLevel,
+      </if>
+      <if test="generallevel != null" >
+        generalLevel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="indexname != null" >
+        #{indexname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="singlelevel != null" >
+        #{singlelevel,jdbcType=DECIMAL},
+      </if>
+      <if test="generallevel != null" >
+        #{generallevel,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.study.model.Index" >
+    update index_t
+    <set >
+      <if test="indexname != null" >
+        indexName = #{indexname,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="singlelevel != null" >
+        singleLevel = #{singlelevel,jdbcType=DECIMAL},
+      </if>
+      <if test="generallevel != null" >
+        generalLevel = #{generallevel,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.study.model.Index" >
+    update index_t
+    set indexName = #{indexname,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      singleLevel = #{singlelevel,jdbcType=DECIMAL},
+      generalLevel = #{generallevel,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.study.dao.WeightMapper" >
+  <resultMap id="BaseResultMap" type="com.study.model.Weight" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="from" property="from" jdbcType="INTEGER" />
+    <result column="value" property="value" jdbcType="DECIMAL" />
+    <result column="to" property="to" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, from, value, to
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from weight_t
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from weight_t
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.study.model.Weight" >
+    insert into weight_t (id, from, value, 
+      to)
+    values (#{id,jdbcType=INTEGER}, #{from,jdbcType=INTEGER}, #{value,jdbcType=DECIMAL}, 
+      #{to,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.study.model.Weight" >
+    insert into weight_t
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="from != null" >
+        from,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+      <if test="to != null" >
+        to,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="from != null" >
+        #{from,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="to != null" >
+        #{to,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.study.model.Weight" >
+    update weight_t
+    <set >
+      <if test="from != null" >
+        from = #{from,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="to != null" >
+        to = #{to,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.study.model.Weight" >
+    update weight_t
+    set from = #{from,jdbcType=INTEGER},
+      value = #{value,jdbcType=DECIMAL},
+      to = #{to,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
