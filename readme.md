@@ -14,7 +14,7 @@ data: 2017年8月24日16:20:31
 - com.stu.demo_1.utils------------------excel工具类
 
 ### 即时消息，webscoket，demo2
-- 通过ajax轮询来完成
+- 通过ajax轮询来完成  [实时消息的实现方式](https://shanmuzhuo.github.io/myblog.github.io/2017/08/22/%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF/)
 - 相关文件：instantMessage.jsp 轮询界面
 - WebSocket.jsp。界面
 
