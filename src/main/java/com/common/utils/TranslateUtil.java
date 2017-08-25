@@ -15,8 +15,8 @@ public class TranslateUtil {
 
 	// 在平台申请的APP_ID 详见
 	// http://api.fanyi.baidu.com/api/trans/product/desktop?req=developer
-	private static final String APP_ID = "20170825000076876";
-	private static final String SECURITY_KEY = "zkx_sSFEMz7JWXXEMl8m";
+	private static final String APP_ID = AESUtil.AESDecode("wqsRVO/1WDviOHoUzTevKDHM1GhxlMxa5547oXsAdI4=");
+	private static final String SECURITY_KEY = AESUtil.AESDecode("B8JZsnHM7uKBUYtf3jQfA36WeIzsiw4/kMoz7aAPaps=");
 
 	/**
 	 * @param to
