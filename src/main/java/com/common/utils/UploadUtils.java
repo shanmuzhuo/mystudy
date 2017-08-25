@@ -1,4 +1,4 @@
-package com.study.utils;
+package com.common.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,6 +11,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+/**
+ * @author zzx
+ * 文件传类，主要依赖于apache.commons.fileupload
+ */
 public class UploadUtils {
 
 	public static boolean uploadFile(HttpServletRequest req, String savePath1) throws Exception {

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.study.utils.UploadUtils;
+import com.common.utils.UploadUtils;
 
 @Controller
 @RequestMapping("/upload")
