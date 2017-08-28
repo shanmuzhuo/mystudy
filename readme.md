@@ -24,8 +24,8 @@ description: 这是一个自我学习的项目，会不断添加小功能，争�
 	- Languages.java ,目标语言，源语言不确定可以用auto，目标语言必须确定
 
 ### com.common.utils
-- TranslateUtil.java：___ 主要使用该类进行语言翻译，返回结果为一条json字符串，暂未处理
+- TranslateUtil.java：___ 主要使用该类进行语言翻译，返回结果为一条json字符串，返回结果暂未处理
 - EncodeConvertUtil.java:___ 进行字符编码转换工具类
 - MD5Util.java:___MD5工具类
-- DecryptPropertyPlaceholderConfigurer：___对配置文件的擦奥做处理
+- DecryptPropertyPlaceholderConfigurer：___对配置文件的参数做处理
 - FileUtil:___文件处理工具类
