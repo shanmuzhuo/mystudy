@@ -43,7 +43,7 @@ public class TranslateUtil {
 
 	public static void main(String[] args) {
 		try {
-			String str = TranslateUtil.doTrans(Languages.wyw, "条条大路通罗马", "世上的一切都是美好的","周游世界，劈柴喂马");
+			String str = TranslateUtil.doTrans(Languages.cht, "条条大路通罗马", "世上的一切都是美好的","周游世界，劈柴喂马");
 			JSONObject jsonObject = JSONObject.parseObject(str);
 			// System.out.println(jsonObject.getString("trans_result"));
 
