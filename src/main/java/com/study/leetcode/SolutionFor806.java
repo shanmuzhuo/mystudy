@@ -1,4 +1,4 @@
-package com.study.leecode;
+package com.study.leetcode;
 
 /**
  * @author zhenxuan.zhuo
